@@ -1,0 +1,1 @@
+include ':app', ':AndEngine', ':AndEnginePhysicsBox2DExtension-GLES2-AnchorCenter', ':AndEngineTexturePackerExtension-GLES2'
