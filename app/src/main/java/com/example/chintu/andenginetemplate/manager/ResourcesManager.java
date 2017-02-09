@@ -17,7 +17,6 @@ import org.andengine.opengl.texture.atlas.bitmap.source.IBitmapTextureAtlasSourc
 import org.andengine.opengl.texture.atlas.buildable.builder.BlackPawnTextureAtlasBuilder;
 import org.andengine.opengl.texture.atlas.buildable.builder.ITextureAtlasBuilder.TextureAtlasBuilderException;
 import org.andengine.opengl.texture.region.ITextureRegion;
-import org.andengine.opengl.texture.region.ITiledTextureRegion;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.util.debug.Debug;
 
@@ -55,19 +54,9 @@ public class ResourcesManager
 	// Game Texture
 	public BuildableBitmapTextureAtlas gameTextureAtlas;
 	
-	// Game Texture Regions
-	public ITextureRegion platform1_region;
-	public ITextureRegion platform2_region;
-	public ITextureRegion platform3_region;
-	public ITextureRegion coin_region;
-	public ITiledTextureRegion player_region;
-	
 	private BitmapTextureAtlas splashTextureAtlas;
 	private BuildableBitmapTextureAtlas menuTextureAtlas;
-	
-	// Level Complete Window
-	public ITextureRegion complete_window_region;
-	public ITiledTextureRegion complete_stars_region;
+
 	
 	//---------------------------------------------
 	// CLASS LOGIC
@@ -124,15 +113,6 @@ public class ResourcesManager
 	{
 		BitmapTextureAtlasTextureRegionFactory.setAssetBasePath("gfx/game/");
         gameTextureAtlas = new BuildableBitmapTextureAtlas(mActivity.getTextureManager(), 1024, 1024, TextureOptions.BILINEAR);
-        
-       	platform1_region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(gameTextureAtlas, mActivity, "platform1.png");
-       	platform2_region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(gameTextureAtlas, mActivity, "platform2.png");
-       	platform3_region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(gameTextureAtlas, mActivity, "platform3.png");
-        coin_region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(gameTextureAtlas, mActivity, "coin.png");
-        player_region = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(gameTextureAtlas, mActivity, "player.png", 3, 1);
-        
-        complete_window_region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(gameTextureAtlas, mActivity, "levelCompleteWindow.png");
-        complete_stars_region = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(gameTextureAtlas, mActivity, "star.png", 2, 1);
 
     	try 
     	{
