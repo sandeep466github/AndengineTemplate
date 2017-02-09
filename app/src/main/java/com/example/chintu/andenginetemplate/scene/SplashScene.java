@@ -25,8 +25,9 @@ public class SplashScene extends BaseScene
             }
     	};
     	
-    	splash.setScale(1.5f);
-    	splash.setPosition(400, 240);
+    	splash.setWidth(mScreenWidth);
+		splash.setHeight(mScreenHeight);
+    	splash.setPosition(mScreenWidth/2, mScreenHeight/2);
     	attachChild(splash);
 	}
 

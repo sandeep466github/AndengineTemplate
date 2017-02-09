@@ -54,8 +54,8 @@ public class GameActivity extends BaseGameActivity
         DisplayMetrics displayMetrics = new DisplayMetrics();
         WindowManager wm = (WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE); // the results will be higher than using the mActivity context object or the getWindowManager() shortcut
         wm.getDefaultDisplay().getMetrics(displayMetrics);
-         screenWidth = displayMetrics.widthPixels;
-         screenHeight = displayMetrics.heightPixels;
+         screenWidth = 800;
+         screenHeight = 480;
     }
 	
 	@Override

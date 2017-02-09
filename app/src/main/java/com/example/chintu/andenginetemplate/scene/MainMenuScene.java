@@ -4,14 +4,12 @@ import com.example.chintu.andenginetemplate.base.BaseScene;
 import com.example.chintu.andenginetemplate.manager.SceneManager;
 import com.example.chintu.andenginetemplate.manager.SceneManager.SceneType;
 
-import org.andengine.engine.camera.Camera;
 import org.andengine.entity.scene.menu.MenuScene;
 import org.andengine.entity.scene.menu.MenuScene.IOnMenuItemClickListener;
 import org.andengine.entity.scene.menu.item.IMenuItem;
 import org.andengine.entity.scene.menu.item.SpriteMenuItem;
 import org.andengine.entity.scene.menu.item.decorator.ScaleMenuItemDecorator;
 import org.andengine.entity.sprite.Sprite;
-import org.andengine.opengl.util.GLState;
 
 
 public class MainMenuScene extends BaseScene implements IOnMenuItemClickListener
@@ -76,15 +74,10 @@ public class MainMenuScene extends BaseScene implements IOnMenuItemClickListener
 	
 	private void createBackground()
 	{
-		attachChild(new Sprite(mScreenWidth/2, mScreenHeight/2, mResourceManager.menu_background_region, mVertexbufferObjectManager)
-		{
-    		@Override
-            protected void preDraw(GLState pGLState, Camera pCamera) 
-    		{
-                super.preDraw(pGLState, pCamera);
-                pGLState.enableDither();
-            }
-		});
+		Sprite backgroundSprite = new Sprite(mScreenWidth/2, mScreenHeight/2, mResourceManager.menu_background_region, mVertexbufferObjectManager);
+		backgroundSprite.setWidth(mScreenWidth);
+		backgroundSprite.setHeight(mScreenHeight);
+        attachChild(backgroundSprite);
 	}
 	
 	private void createMenuChildScene()
@@ -92,8 +85,8 @@ public class MainMenuScene extends BaseScene implements IOnMenuItemClickListener
 		menuChildScene = new MenuScene(mCamera);
 		menuChildScene.setPosition(mScreenWidth/2, mScreenHeight/2);
 		
-		final IMenuItem playMenuItem = new ScaleMenuItemDecorator(new SpriteMenuItem(MENU_PLAY, mResourceManager.play_region, mVertexbufferObjectManager), 1.2f, 1);
-		final IMenuItem optionsMenuItem = new ScaleMenuItemDecorator(new SpriteMenuItem(MENU_OPTIONS, mResourceManager.options_region, mVertexbufferObjectManager), 1.2f, 1);
+		final IMenuItem playMenuItem = new ScaleMenuItemDecorator(new SpriteMenuItem(MENU_PLAY, mResourceManager.play_region, mVertexbufferObjectManager), 0, 1);
+		final IMenuItem optionsMenuItem = new ScaleMenuItemDecorator(new SpriteMenuItem(MENU_OPTIONS, mResourceManager.options_region, mVertexbufferObjectManager), 0, 1);
 		
 		menuChildScene.addMenuItem(playMenuItem);
 		menuChildScene.addMenuItem(optionsMenuItem);
